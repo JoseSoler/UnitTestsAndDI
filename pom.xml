@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>UnitTestAndDI</name>
-    <url>http://maven.apache.org</url>
+    <url>www.jlsoler.com/blog</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

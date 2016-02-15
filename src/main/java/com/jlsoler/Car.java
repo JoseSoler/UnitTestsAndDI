@@ -6,14 +6,31 @@ package com.jlsoler;
 
 public class Car {
 
-    private Engine engine = new Engine();
+    private Engine engine;
 
-    public String startCar(){
-
-        engine.startEngine();
-        return "Car started in mode " + engine.getMode();
+    public Car(){
+        engine = new Engine();
     }
 
+    public String startCar(){
+        engine.startEngine();
+        return "Car in mode: " + engine.getMode();
+    }
+
+    public String stopCar(){
+        engine.stopEngine();
+        return "Car in mode: " + engine.getMode();
+    }
+
+    public String accelerate(){
+        engine.fullPerformance();
+        return "Car operating in: " + engine.getMode();
+    }
+
+    public String deccelerate(){
+        engine.saveFuel();
+        return "Car operating in: " + engine.getMode();
+    }
 
 
 }

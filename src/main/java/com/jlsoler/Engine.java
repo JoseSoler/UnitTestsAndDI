@@ -5,22 +5,45 @@ package com.jlsoler;
  */
 public class Engine {
 
-    private String mode = "OFF";
+    public enum STATES {OFF, ON, SAVING, FULL}
+
+    private STATES engine_state = STATES.OFF;
 
     public void startEngine() {
-        this.mode = "STARTED";
+        if (engine_state == STATES.OFF) {
+            this.engine_state = STATES.ON;
+        } else {
+            throw new RuntimeException("Unexpected engine state.");
+        }
     }
 
     public void stopEngine() {
-        this.mode = "STOPPED";
+        if (engine_state != STATES.FULL) {
+            this.engine_state = STATES.OFF;
+        } else {
+            throw new RuntimeException("Unexpected engine state.");
+        }
     }
 
     public void saveFuel() {
-        this.mode = "SAVING";
+        if (engine_state != STATES.OFF) {
+            this.engine_state = STATES.SAVING;
+        } else {
+            throw new RuntimeException("Unexpected engine state.");
+        }
+
     }
 
-    public String getMode() {
-        return mode;
+    public void fullPerformance() {
+        if (engine_state != STATES.OFF) {
+            this.engine_state = STATES.FULL;
+        } else {
+            throw new RuntimeException("Unexpected engine state.");
+        }
+    }
+
+    public STATES getMode() {
+        return engine_state;
     }
 
 }
